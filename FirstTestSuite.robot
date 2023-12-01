@@ -11,3 +11,7 @@ TestCase1
     Click Link    Logout
     Close Browser
 
+TestCase2
+    Open Browser    url=https://www.amazon.com.br/    browser=chrome
+    Close Browser
+
