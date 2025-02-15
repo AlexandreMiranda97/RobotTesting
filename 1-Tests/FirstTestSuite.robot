@@ -3,6 +3,8 @@ Library             SeleniumLibrary
 
 Resource            ../2-Steps/FirstTestSuiteStep.robot
 
+Test Setup          
+
 *** Test Cases ***
 @Before
     Open Browser    url=https://www.saucedemo.com    browser=chrome
