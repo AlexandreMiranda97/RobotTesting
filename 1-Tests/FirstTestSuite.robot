@@ -1,9 +1,14 @@
 *** Settings ***
-Library           SeleniumLibrary
+Library             SeleniumLibrary
+
+Resource            ../2-Steps/FirstTestSuiteStep.robot
 
 *** Test Cases ***
-TestCase1
-    Open Browser    url=https://the-internet.herokuapp.com/login    browser=chrome
+@Before
+    Open Browser    url=https://www.saucedemo.com    browser=chrome
+
+Scenario 01: FirstTestCase
+    Element Should Be Visible    locator
     Input Text    username    tomsmith
     Input Text    password    SuperSecretPassword!
     Click Button     class:radius
