@@ -1,25 +1,1082 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231201 09:16:55.541" rpa="false" schemaversion="4">
-<suite id="s1" name="FirstTestSuite" source="d:\Trabalho\RobotTesting\FirstTestSuite.robot">
-<test id="s1-t1" name="TestCase2" line="14">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>url=https://www.amazon.com.br/</arg>
+<robot generator="Robot 7.0.1 (Python 3.12.7 on win32)" generated="2025-02-16T23:26:43.029438" rpa="false" schemaversion="5">
+<suite id="s1" name="FirstTestSuite" source="D:\Studies\RobotTesting\1-Tests\FirstTestSuite.robot">
+<test id="s1-t1" name="CT-01: Realizar login com sucesso" line="29">
+<kw name="Iniciar sessao" owner="config" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:43.213493" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=${OPTIONS}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231201 09:16:55.736" level="INFO">Opening browser 'firefox' to base url 'https://www.amazon.com.br/'.</msg>
-<status status="PASS" starttime="20231201 09:16:55.735" endtime="20231201 09:17:05.313"/>
+<status status="PASS" start="2025-02-16T23:26:43.213493" elapsed="2.194081"/>
 </kw>
-<status status="PASS" starttime="20231201 09:16:55.734" endtime="20231201 09:17:05.314"/>
+<arg>${URL}</arg>
+<status status="PASS" start="2025-02-16T23:26:43.212490" elapsed="2.195084"/>
+</kw>
+<kw name="Realizar login" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputUsername}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.408635" elapsed="0.019912"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.429620" elapsed="0.009665"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:45.440370" level="INFO">Clicking element 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.439285" elapsed="0.060414"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.499699" elapsed="0.024731"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:45.824556" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.524430" elapsed="0.300126"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:45.825060" level="INFO">Typing text 'standard_user' into text field 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.824556" elapsed="0.069847"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:46.894499" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:45.894403" elapsed="1.000096"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:46.905400" level="INFO">${value} = standard_user</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:46.894499" elapsed="0.010901"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:26:46.905400" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:26:46.905400" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:46.905400" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:46.905400" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:46.905400" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:26:46.894499" elapsed="0.010901"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:26:46.894499" elapsed="0.010901"/>
+</for>
+<arg>${inputUsername}</arg>
+<arg>${usuario}</arg>
+<status status="PASS" start="2025-02-16T23:26:45.428547" elapsed="1.477874"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:47.206762" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:46.906421" elapsed="0.300341"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.206762" elapsed="0.012398"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.219160" elapsed="0.009822"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:47.228982" level="INFO">Clicking element 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.228982" elapsed="0.040821"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.269803" elapsed="0.014312"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:47.585230" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.285120" elapsed="0.300110"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:47.585230" level="INFO">Typing text 'secret_sauce' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.585230" elapsed="0.046313"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:48.632081" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:47.631543" elapsed="1.000538"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:48.640184" level="INFO">${value} = secret_sauce</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:48.632081" elapsed="0.008103"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:26:48.640184" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:26:48.640184" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:48.640184" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:48.640184" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:48.640184" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:26:48.632081" elapsed="0.008103"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:26:48.632081" elapsed="0.008103"/>
+</for>
+<arg>${inputPassword}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:26:47.219160" elapsed="1.421024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:48.940642" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:48.640184" elapsed="0.300458"/>
+</kw>
+<kw name="Clicar elemento" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:48.940642" elapsed="0.013244"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:48.953886" level="INFO">Clicking element 'xpath=//input[@id="login-button"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:48.953886" elapsed="0.069124"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:50.023033" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:49.023010" elapsed="1.000023"/>
+</kw>
+<arg>${loginButton}</arg>
+<status status="PASS" start="2025-02-16T23:26:48.940642" elapsed="1.082391"/>
+</kw>
+<arg>${usuario}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:26:45.408635" elapsed="4.614398"/>
+</kw>
+<kw name="Validar acesso a tela pelo titulo" owner="FirstTestSuiteStep">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(), "${elemento}")]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:50.024035" elapsed="0.011171"/>
+</kw>
+<msg time="2025-02-16T23:26:50.035206" level="INFO">${tela} = True</msg>
+<var>${tela}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//*[contains(text(), "${elemento}")]</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-02-16T23:26:50.023033" elapsed="0.012173"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${tela}&quot; != &quot;True&quot;">
+<kw name="Log" owner="BuiltIn">
+<arg>***Tela esperada não exibida com sucesso. Teste falhou!***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:50.035206" elapsed="0.000000"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:50.036210" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-02-16T23:26:50.035206" elapsed="0.001004"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-16T23:26:50.036210" level="INFO">***Elemento esperado exibido com sucesso. A tela foi carregada!***</msg>
+<arg>***Elemento esperado exibido com sucesso. A tela foi carregada!***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-16T23:26:50.036210" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:26:50.036210" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-02-16T23:26:50.035206" elapsed="0.001004"/>
+</if>
+<arg>Products</arg>
+<status status="PASS" start="2025-02-16T23:26:50.023033" elapsed="0.013177"/>
+</kw>
+<kw name="Encerrar sessao" owner="config" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-16T23:26:50.036210" elapsed="2.192873"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:26:50.036210" elapsed="2.192873"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:26:43.212490" elapsed="9.016593"/>
 </test>
-<status status="PASS" starttime="20231201 09:16:55.546" endtime="20231201 09:17:05.315"/>
+<test id="s1-t2" name="CT-02: Realizar login sem preencher usuario" line="35">
+<kw name="Iniciar sessao" owner="config" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:52.230453" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=${OPTIONS}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-16T23:26:52.230453" elapsed="2.137112"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2025-02-16T23:26:52.230453" elapsed="2.137112"/>
+</kw>
+<kw name="Realizar login" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputUsername}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.368708" elapsed="0.018540"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.388257" elapsed="0.013651"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:54.402922" level="INFO">Clicking element 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.402922" elapsed="0.108806"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.512232" elapsed="0.038174"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:54.850677" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.550406" elapsed="0.300271"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:54.850677" level="INFO">Typing text '' into text field 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.850677" elapsed="0.042010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:55.892722" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:54.892687" elapsed="1.000035"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:55.901755" level="INFO">${value} = </msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:55.892722" elapsed="0.009033"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:26:55.901755" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:26:55.901755" elapsed="0.001511"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:55.903266" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:55.903266" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:55.903266" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:26:55.892722" elapsed="0.010544"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:26:55.892722" elapsed="0.010544"/>
+</for>
+<arg>${inputUsername}</arg>
+<arg>${usuario}</arg>
+<status status="PASS" start="2025-02-16T23:26:54.387248" elapsed="1.516018"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:56.203576" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:55.903266" elapsed="0.300310"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.203576" elapsed="0.011141"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.214717" elapsed="0.008536"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:56.224276" level="INFO">Clicking element 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.224276" elapsed="0.035468"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.260816" elapsed="0.013184"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:56.574423" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.274000" elapsed="0.300423"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:56.574928" level="INFO">Typing text 'secret_sauce' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.574423" elapsed="0.047341"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:57.622045" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:56.621764" elapsed="1.000281"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:57.630539" level="INFO">${value} = secret_sauce</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:57.622549" elapsed="0.007990"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:26:57.630539" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:26:57.630539" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:57.630539" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:57.630539" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:26:57.630539" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:26:57.622549" elapsed="0.007990"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:26:57.622045" elapsed="0.008494"/>
+</for>
+<arg>${inputPassword}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:26:56.214717" elapsed="1.415822"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:57.932332" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:57.630539" elapsed="0.301793"/>
+</kw>
+<kw name="Clicar elemento" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:57.932332" elapsed="0.012308"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:57.944640" level="INFO">Clicking element 'xpath=//input[@id="login-button"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:26:57.944640" elapsed="0.047195"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:26:58.992035" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:26:57.991835" elapsed="1.000200"/>
+</kw>
+<arg>${loginButton}</arg>
+<status status="PASS" start="2025-02-16T23:26:57.932332" elapsed="1.059703"/>
+</kw>
+<arg>${usuarioNull}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:26:54.368708" elapsed="4.623327"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:26:59.005435" level="INFO">Element 'xpath=//*[contains(text(), "Epic sadface: Username is required")]' is displayed.</msg>
+<arg>${userErrorMsg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:26:58.992035" elapsed="0.013400"/>
+</kw>
+<kw name="Encerrar sessao" owner="config" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-16T23:26:59.005435" elapsed="2.181600"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:26:59.005435" elapsed="2.181600"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:26:52.230453" elapsed="8.956582"/>
+</test>
+<test id="s1-t3" name="CT-03: Realizar login com usuario errado" line="41">
+<kw name="Iniciar sessao" owner="config" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:01.188285" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=${OPTIONS}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-16T23:27:01.188285" elapsed="2.094866"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2025-02-16T23:27:01.188285" elapsed="2.094866"/>
+</kw>
+<kw name="Realizar login" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputUsername}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.284179" elapsed="0.032383"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.316562" elapsed="0.012374"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:03.330114" level="INFO">Clicking element 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.330114" elapsed="0.055196"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.385310" elapsed="0.021964"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:03.707717" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.407274" elapsed="0.300443"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:03.707717" level="INFO">Typing text 'wrong_user' into text field 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.707717" elapsed="0.073075"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:04.781027" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:03.780792" elapsed="1.000235"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:04.790572" level="INFO">${value} = wrong_user</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:04.781530" elapsed="0.009042"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:27:04.790572" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:27:04.790572" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:04.790572" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:04.790572" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:04.790572" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:27:04.781027" elapsed="0.009545"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:27:04.781027" elapsed="0.009545"/>
+</for>
+<arg>${inputUsername}</arg>
+<arg>${usuario}</arg>
+<status status="PASS" start="2025-02-16T23:27:03.316562" elapsed="1.474010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:05.091091" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:04.790572" elapsed="0.300519"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.091091" elapsed="0.012316"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.103407" elapsed="0.008573"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:05.111980" level="INFO">Clicking element 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.111980" elapsed="0.037552"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.149532" elapsed="0.013648"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:05.463678" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.163180" elapsed="0.300498"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:05.463678" level="INFO">Typing text 'secret_sauce' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.463678" elapsed="0.044972"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:06.510005" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:05.509661" elapsed="1.000344"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:06.518240" level="INFO">${value} = secret_sauce</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:06.510005" elapsed="0.008235"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:27:06.518240" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:27:06.518240" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:06.518240" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:06.518240" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:06.519244" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:27:06.510005" elapsed="0.009239"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:27:06.510005" elapsed="0.009239"/>
+</for>
+<arg>${inputPassword}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:27:05.103407" elapsed="1.415837"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:06.819513" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:06.519244" elapsed="0.300269"/>
+</kw>
+<kw name="Clicar elemento" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:06.819513" elapsed="0.012848"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:06.832361" level="INFO">Clicking element 'xpath=//input[@id="login-button"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:06.832361" elapsed="0.073238"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:07.905978" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:06.905599" elapsed="1.000379"/>
+</kw>
+<arg>${loginButton}</arg>
+<status status="PASS" start="2025-02-16T23:27:06.819513" elapsed="1.086465"/>
+</kw>
+<arg>${usuarioErrado}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:27:03.284179" elapsed="4.621799"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:07.920491" level="INFO">Element 'xpath=//*[contains(text(), "Epic sadface: Username and password do not match any user in this service")]' is displayed.</msg>
+<arg>${credentialErrorMsg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:07.905978" elapsed="0.014513"/>
+</kw>
+<kw name="Encerrar sessao" owner="config" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-16T23:27:07.921995" elapsed="2.190026"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:27:07.921995" elapsed="2.190026"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:27:01.187035" elapsed="8.924986"/>
+</test>
+<test id="s1-t4" name="CT-04: Validar produtos da tela" line="47">
+<kw name="Iniciar sessao" owner="config" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:10.113446" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=${OPTIONS}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-16T23:27:10.113446" elapsed="2.081758"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2025-02-16T23:27:10.113446" elapsed="2.081758"/>
+</kw>
+<kw name="Realizar login" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputUsername}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.196206" elapsed="0.016649"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.214275" elapsed="0.009933"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:12.224208" level="INFO">Clicking element 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.224208" elapsed="0.078961"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.303169" elapsed="0.019137"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:12.622405" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.322306" elapsed="0.300099"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:12.622910" level="INFO">Typing text 'standard_user' into text field 'xpath=//input[@id="user-name"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.622405" elapsed="0.066740"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:13.689499" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:12.689145" elapsed="1.000354"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:13.699066" level="INFO">${value} = standard_user</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:13.689499" elapsed="0.009567"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:27:13.700073" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:27:13.699066" elapsed="0.001007"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:13.700073" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:13.700073" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:13.700073" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:27:13.689499" elapsed="0.010574"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:27:13.689499" elapsed="0.010574"/>
+</for>
+<arg>${inputUsername}</arg>
+<arg>${usuario}</arg>
+<status status="PASS" start="2025-02-16T23:27:12.212855" elapsed="1.487218"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:14.000555" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:13.700073" elapsed="0.300482"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.000555" elapsed="0.011605"/>
+</kw>
+<kw name="Preencher campo" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.012160" elapsed="0.009100"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:14.021260" level="INFO">Clicking element 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.021260" elapsed="0.036777"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.058037" elapsed="0.013994"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:14.372173" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.072031" elapsed="0.300142"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:14.372173" level="INFO">Typing text 'secret_sauce' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.372173" elapsed="0.045316"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:15.418537" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:14.417489" elapsed="1.001048"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:15.426734" level="INFO">${value} = secret_sauce</msg>
+<var>${value}</var>
+<arg>${elemento}</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:15.418537" elapsed="0.008197"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-02-16T23:27:15.426734" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${value}" == "${valor}"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-16T23:27:15.426734" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>*** Campo preenchido errado. Refazendo operação! ***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:15.426734" elapsed="0.000000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:15.426734" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:15.426734" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-02-16T23:27:15.418537" elapsed="0.008197"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-16T23:27:15.418537" elapsed="0.009238"/>
+</for>
+<arg>${inputPassword}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:27:14.012160" elapsed="1.415615"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:15.728000" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:15.427775" elapsed="0.300225"/>
+</kw>
+<kw name="Clicar elemento" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${elemento}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:15.728000" elapsed="0.011980"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:15.739980" level="INFO">Clicking element 'xpath=//input[@id="login-button"]'.</msg>
+<arg>${elemento}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:15.739980" elapsed="0.069597"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-16T23:27:16.810001" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-16T23:27:15.809577" elapsed="1.000424"/>
+</kw>
+<arg>${loginButton}</arg>
+<status status="PASS" start="2025-02-16T23:27:15.728000" elapsed="1.082001"/>
+</kw>
+<arg>${usuario}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-02-16T23:27:12.195204" elapsed="4.614797"/>
+</kw>
+<kw name="Validar acesso a tela pelo titulo" owner="FirstTestSuiteStep">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[contains(text(), "${elemento}")]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.811034" elapsed="0.009879"/>
+</kw>
+<msg time="2025-02-16T23:27:16.820913" level="INFO">${tela} = True</msg>
+<var>${tela}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//*[contains(text(), "${elemento}")]</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.811034" elapsed="0.011383"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${tela}&quot; != &quot;True&quot;">
+<kw name="Log" owner="BuiltIn">
+<arg>***Tela esperada não exibida com sucesso. Teste falhou!***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:16.822417" elapsed="0.000000"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-02-16T23:27:16.822417" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-02-16T23:27:16.822417" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-16T23:27:16.822417" level="INFO">***Elemento esperado exibido com sucesso. A tela foi carregada!***</msg>
+<arg>***Elemento esperado exibido com sucesso. A tela foi carregada!***</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.822417" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:27:16.822417" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-02-16T23:27:16.822417" elapsed="0.000000"/>
+</if>
+<arg>Products</arg>
+<status status="PASS" start="2025-02-16T23:27:16.810001" elapsed="0.012416"/>
+</kw>
+<kw name="Validar produtos retornados" owner="FirstTestSuiteStep">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${listaProdutos}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.823457" elapsed="0.011824"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-02-16T23:27:16.843618" level="INFO">${count} = 6</msg>
+<var>${count}</var>
+<arg>${cardProduto}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.835281" elapsed="0.008337"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} == 6</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.843618" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:27:16.823457" elapsed="0.020161"/>
+</kw>
+<kw name="Encerrar sessao" owner="config" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-16T23:27:16.844619" elapsed="2.176839"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:27:16.844619" elapsed="2.176839"/>
+</kw>
+<status status="PASS" start="2025-02-16T23:27:10.112021" elapsed="8.909437"/>
+</test>
+<status status="PASS" start="2025-02-16T23:26:43.030467" elapsed="35.991998"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="FirstTestSuite">FirstTestSuite</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="FirstTestSuite">FirstTestSuite</stat>
 </suite>
 </statistics>
 <errors>
