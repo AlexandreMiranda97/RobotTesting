@@ -3,13 +3,19 @@ Library             SeleniumLibrary
 
 Resource            ../2-Steps/FirstTestSuiteStep.robot
 
-Test Setup          
+*** Variables ***
+${pageInicial}=        https://www.saucedemo.com
+${usuario}=            standard_user
+${usuarioErrado}=      wrong_user
+${senha}=              secret_sauce
+
 
 *** Test Cases ***
-@Before
-    Open Browser    url=https://www.saucedemo.com    browser=chrome
+CT-01: Realizar login com sucesso
+    Acessar a pagina    ${pageInicial}
+    Realizar login    ${usuario}    ${senha}
+    Validar acesso a tela    
 
-Scenario 01: FirstTestCase
     Element Should Be Visible    locator
     Input Text    username    tomsmith
     Input Text    password    SuperSecretPassword!

@@ -5,10 +5,32 @@ Resource    ../3-pages/FirstTestSuitePage.robot
 
 *** Keywords ***
 
-Fill field
-    [Arguments]    ${element}    ${text}
-    Wait Until Element Is Visible            ${element}            10s
-    Click Element                            ${element}
-    Sleep                                    0.5s
-    Input Text                               ${element}            ${text}
-    Element Should Contain                   ${element}            ${text}
+Preencher campo
+    [Arguments]    ${elemento}    ${valor}
+    Wait Until Element Is Visible            ${elemento}                   10
+    Click Element                            ${elemento}
+    Wait Until Element Is Enabled            ${elemento}                   10
+    Sleep                                    0.3
+    Input Text                               ${elemento}                   ${valor}
+    Element Should Contain                   ${elemento}                   ${valor}
+
+Clicar elemento
+    [Arguments]    ${elemento}    ${timeout}=10
+    Wait Until Element Is Visible            ${elemento}                   ${timeout}
+    Click Element                            ${elemento}
+    Sleep                                    1
+
+Acessar a pagina
+    [Arguments]    ${URL}
+    Open Browser                             ${URL}                        chrome
+
+Realizar login
+    [Arguments]    ${usuario}    ${senha}
+    Wait Until Element Is Visible            ${inputUsername}              10s
+    Preencher campo                          ${inputUsername}              ${usuario}
+    Element Should Contain                   ${inputUsername}              ${usuario}
+    Sleep                                    1
+    Preencher campo                          ${inputPassword}              ${senha}
+    Element Should Contain                   ${inputPassword}              ${senha}
+    Sleep                                    1
+    Clicar elemento                          ${loginButton}
